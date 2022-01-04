@@ -47,7 +47,7 @@ switch($data_obj->action){
             $dateTime = "$d[mon]-$d[mday]-$d[year] $d[hours]:$d[minutes]:$d[seconds]";
 
             $query_result = pg_query($conn, 
-            "UPDATE users SET auth_code = ".$authentication_code." SET last_code_request = '". $dateTime ."' Where email = '".$email."'");
+            "UPDATE users SET auth_code = ".$authentication_code.", SET last_code_request = '". $dateTime ."' Where email = '".$email."'");
 
             if (!$query_result) {
                 // reply (saving authentication code status (failed))
