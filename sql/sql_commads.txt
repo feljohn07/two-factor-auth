@@ -1,0 +1,14 @@
+Create table users(
+	user_id serial,
+	email varchar,
+	pass varchar,
+	auth_code varchar(5),
+	
+	Primary key (user_id),
+	Unique (email)
+)
+
+select * from users
+
+Insert Into users(email, pass, name, gender, birth_date)
+values('feljohn.bang@carsu.edu.ph', '123', 'john', 'male', '01-02-00')

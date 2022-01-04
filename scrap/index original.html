@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <style>
+        body{
+            margin: auto;
+        }
+        .form{
+            margin: auto;
+            max-width: fit-content;
+        }
+
+        input{
+            margin: 1px;
+        }
+
+        [type='checkbox']{
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <section class="form">
+        <h1>Sign Up</h1>
+        
+        <form action="/form_input/eventHandler.php" method="GET" autocomplete="off">
+            <!--<label>Profile Picture</label><br>
+            <label for="file">Select a file: </label>
+            <input type="file" id="file" name="file"><br><br>--->
+            <label for="fullname">Full Name</label><br>
+            <input type="text" id="fullname" name="fullname"><br><br>
+            <label>Gender</label><br>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label><br>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label><br><br>
+            <label for="birthdate">Birthdate</label><br>
+            <input type="date" id="birthdate" name="birthdate"><br><br>
+            <label for="username" >Username</label><br>
+            <input type="text" id="username" name="username"><br>
+            <label for="password">Password</label><br>
+            <input type="password" id="password" name="password"><br>
+            <label for="passwordconfirm">Confirm Password</label><br>
+            <input type="password" id="passwordconfirm" name="passwordconfirm"><br>
+            <input type="checkbox" id="term" name="term" value="accept">
+            <label for="term"><small>I accept to the term and sign up.</small></label><br><br>
+            <input type="submit" value="Sign up"><br><br>
+            <small><span>already have account?</span>
+            <a href="/form_input/login.html">Log in</a></small>
+        </form>
+    </section>
+    
+    
+</body>
+</html>
