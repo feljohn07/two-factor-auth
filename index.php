@@ -25,11 +25,11 @@ $mail->SMTPAuth = "true";
 // set type of encryption
 $mail->SMTPSecure = "tls";
 // set port to connect smtp
-$mail->Port = "465";
+$mail->Port = "578";
 // set gmail username
 $mail->Username = "feljohn.loe.bangasan@gmail.com";
 // set gmail password
-$mail->Password = "tfgwiqpccwlgxoaj";
+$mail->Password = "sstkndpooachiqgk";
 // set email subject
 $mail->Subject = "OTP TEST";
 // set sender email
