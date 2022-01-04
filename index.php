@@ -39,11 +39,15 @@ $mail->Body = "this is the body";
 // add recipient
 $mail->addAddress("feljohn.loe.bangasan@gmail.com");
 // send the email
-if(!$mail->Send()){
-    "Mailer Error: " . $mail->ErrorInfo;
-}else{
-    echo "Message has been sent";
-}
+$response = $mail->Send();
+
+echo $response;
+
+// if($mail->Send()){
+//     echo "email sent!";
+// }else{
+//     echo "error occured";
+// }
 
 // close smtp connection
 $mail->smtpClose();
