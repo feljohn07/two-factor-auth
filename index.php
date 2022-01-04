@@ -8,7 +8,7 @@
 // require('includes\SMTP.php');
 // require('includes\Exception.php');
 
-require 'vendor/autoload.php';
+require ('vendor/autoload.php');
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -19,11 +19,11 @@ $mail = new PHPMailer(true);
 $mail->isSMTP();
 $mail->SMTPDebug = 1;// debugging: 1 = errors and messages, 2 = messages only
 // Define SMTP Host
-$mail->Host = "smtp.gmail.com";
+$mail->Host = "ssl://smtp.gmail.com";
 // Enable smtp authentication
 $mail->SMTPAuth = "true";
 // set type of encryption
-$mail->SMTPSecure = "tls";
+$mail->SMTPSecure = "ssl";
 // set port to connect smtp
 $mail->Port = "465";
 // set gmail username
