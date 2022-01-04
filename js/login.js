@@ -17,7 +17,7 @@ function request_code(){
             obj_reply = JSON.parse(this.responseText);
             alert('Code Sent!');
             TwoFactAuth_form.classList.remove('disabledform');
-            
+            alert(this.responseText);
         }else{
             alert("ERROR: " + xmlhttp.status);
         }

@@ -39,22 +39,24 @@ switch($data_obj->action){
         // SEND EMAIL
         // mail($email, $subject, $authentication_code);
 
-        sendEmail($email, $subject, $authentication_code);
+        if(sendEmail($email, $subject, $authentication_code)){
+            // reply (authentication status (success | failure), Authentication code)
+            $auth_reply = array("status" => "sucess", "auth_code" => $authentication_code);
 
+            $query_result = pg_query($conn, "UPDATE users SET auth_code = ".$authentication_code." where email = '".$email."'");
 
-        // reply (authentication status (success | failure), Authentication code)
-        $auth_reply = array("status" => "sucess", "auth_code" => $authentication_code);
+            if (!$query_result) {
+                $login_reply = array("reply" => 'An error occurred');
+                echo json_encode($login_reply);
+                exit;
 
-        $query_result = pg_query($conn, "UPDATE users SET auth_code = ".$authentication_code." where email = '".$email."'");
-
-        if (!$query_result) {
-            $login_reply = array("reply" => 'An error occurred');
-            echo json_encode($login_reply);
-            exit;
-
+            }else{
+                echo json_encode($auth_reply);
+            }
         }else{
-            echo json_encode($auth_reply);
+            echo 'ERROR WHILE SENDING CODE';
         }
+
 
         break;
 

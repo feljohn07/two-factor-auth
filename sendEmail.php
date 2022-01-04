@@ -35,15 +35,11 @@ function sendEmail($receiver, $subject, $OTP){
     // add recipient
     $mail->addAddress($receiver);
     // send the email
-    // $response = $mail->Send();
 
-    // echo $response;
+    $response = $mail->Send();
 
-    if($mail->Send()){
-        echo "Check your Email for OTP";
-    }else{
-        echo "error occured";
-    }
+    // return 1 if success
+    return $response;
 
     // close smtp connection
     $mail->smtpClose();
