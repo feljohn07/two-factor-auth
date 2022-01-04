@@ -29,8 +29,13 @@ switch($data_obj->action){
     
     //Insert new user to the database.
     case 'insert_user':
-        $query = "Insert Into users(email, pass, name, gender, birth_date)
-        values('". $data_obj->email ."', '".$data_obj->password."', '".$data_obj->fullname."', '".$data_obj->gender."', '".$data_obj->birthdate."');";
+
+        // Return date/time info of a timestamp; then format the output
+        $d = getdate(date("U"));
+        $dateTime = "$d[mon]-$d[mday]-$d[year] $d[hours]:$d[minutes]:$d[seconds]";
+
+        $query = "Insert Into users(email, pass, name, gender, birth_date, user_created)
+        values('". $data_obj->email ."', '".$data_obj->password."', '".$data_obj->fullname."', '".$data_obj->gender."', '".$data_obj->birthdate."', '".$dateTime."');";
         
         $result = pg_query($conn, $query);
         if (!$result) {
