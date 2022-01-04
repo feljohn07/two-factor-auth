@@ -6,45 +6,50 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-$mail = new PHPMailer(true);
+function sendEmail($receiver, $OTP, $subject){
 
-$mail->isSMTP();
+    $mail = new PHPMailer(true);
+    $mail->isSMTP();
 
-// debugger
-// $mail->SMTPDebug = 1;// debugging: 1 = errors and messages, 2 = messages only
+    // debugger
+    // $mail->SMTPDebug = 1;// debugging: 1 = errors and messages, 2 = messages only
 
-// Define SMTP Host
-$mail->Host = "ssl://smtp.gmail.com";
-// Enable smtp authentication
-$mail->SMTPAuth = "true";
-// set type of encryption
-$mail->SMTPSecure = "ssl";
-// set port to connect smtp
-$mail->Port = "465";
-// set gmail username
-$mail->Username = "feljohn.loe.bangasan@gmail.com";
-// set gmail password
-$mail->Password = "tfgwiqpccwlgxoaj";
-// set email subject
-$mail->Subject = "OTP TEST";
-// set sender email
-$mail->setFrom("feljohn.loe.bangasan@gmail.com");
-// set email body
-$mail->Body = "this is the body";
-// add recipient
-$mail->addAddress("feljohn.loe.bangasan@gmail.com");
-// send the email
-// $response = $mail->Send();
+    // Define SMTP Host
+    $mail->Host = "ssl://smtp.gmail.com";
+    // Enable smtp authentication
+    $mail->SMTPAuth = "true";
+    // set type of encryption
+    $mail->SMTPSecure = "ssl";
+    // set port to connect smtp
+    $mail->Port = "465";
+    // set gmail username
+    $mail->Username = "feljohn.loe.bangasan@gmail.com";
+    // set gmail password
+    $mail->Password = "tfgwiqpccwlgxoaj";
+    // set email subject
+    $mail->Subject = $subject;
+    // set sender email
+    $mail->setFrom("feljohn.loe.bangasan@gmail.com");
+    // set email body
+    $mail->Body = $OTP;
+    // add recipient
+    $mail->addAddress($receiver);
+    // send the email
+    // $response = $mail->Send();
 
-// echo $response;
+    // echo $response;
 
-if($mail->Send()){
-    echo "email sent!";
-}else{
-    echo "error occured";
+    if($mail->Send()){
+        echo "Check your Email for OTP";
+    }else{
+        echo "error occured";
+    }
+
+    // close smtp connection
+    $mail->smtpClose();
 }
 
-// close smtp connection
-$mail->smtpClose();
+sendEmail('feljohn.loe.bangasan@gmail.com', '0000', "YOUR LOGIN ONE-TIME-PASSWORD");
+
 
 ?>
