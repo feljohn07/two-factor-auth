@@ -4,9 +4,11 @@
 // require('vendor\phpmailer\phpmailer\src\SMTP.php');
 // require('vendor\phpmailer\phpmailer\src\Exception.php');
 
-require('includes\PHPMailer.php');
-require('includes\SMTP.php');
-require('includes\Exception.php');
+// require('includes\PHPMailer.php');
+// require('includes\SMTP.php');
+// require('includes\Exception.php');
+
+require 'vendor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
