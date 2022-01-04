@@ -15,12 +15,13 @@ use PHPMailer\PHPMailer\Exception;
 $mail = new PHPMailer(true);
 
 $mail->isSMTP();
+$mail->SMTPDebug = 1;// debugging: 1 = errors and messages, 2 = messages only
 // Define SMTP Host
 $mail->Host = "smtp.gmail.com";
 // Enable smtp authentication
 $mail->SMTPAuth = "true";
 // set type of encryption
-$mail->SMTPSecure = "ssl";
+$mail->SMTPSecure = "tls";
 // set port to connect smtp
 $mail->Port = "465";
 // set gmail username
@@ -36,10 +37,10 @@ $mail->Body = "this is the body";
 // add recipient
 $mail->addAddress("feljohn.loe.bangasan@gmail.com");
 // send the email
-if($mail->Send()){
-    echo "email sent!";
+if(!$mail->Send()){
+    "Mailer Error: " . $mail->ErrorInfo;
 }else{
-    echo "error occured";
+    echo "Message has been sent";
 }
 
 // close smtp connection
