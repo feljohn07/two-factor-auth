@@ -40,23 +40,22 @@ switch($data_obj->action){
         // mail($email, $subject, $authentication_code);
 
         if(sendEmail($email, $subject, $authentication_code)){
-            // reply (authentication status (success | failure), Authentication code)
-            $auth_reply = array("status" => "sucess", "auth_code" => $authentication_code);
 
             $query_result = pg_query($conn, "UPDATE users SET auth_code = ".$authentication_code." where email = '".$email."'");
 
             if (!$query_result) {
-                $login_reply = array("reply" => 'An error occurred');
-                echo json_encode($login_reply);
+                // reply (saving authentication code status (failed))
+                echo json_encode(array("status" => "failed", "reply" => "an error occured while querieng."));
                 exit;
 
             }else{
-                echo json_encode($auth_reply);
+                // reply (saving authentication code status (success))
+                echo json_encode(array("status" => "sucess", "reply" => "new authentication saved!."));
             }
         }else{
-            echo 'ERROR WHILE SENDING CODE';
+            // reply (sending authentication code status (success))
+            echo json_encode(array("status" => "failed", "reply" => "an error occured while sending OTP to your email. Please wait a moment and try again"));
         }
-
 
         break;
 
