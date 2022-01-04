@@ -23,7 +23,7 @@ $mail->Host = "smtp.gmail.com";
 // Enable smtp authentication
 $mail->SMTPAuth = "true";
 // set type of encryption
-$mail->SMTPSecure = "tls";
+$mail->SMTPSecure = "ssl";
 // set port to connect smtp
 $mail->Port = "578";
 // set gmail username
