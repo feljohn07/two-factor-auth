@@ -1,5 +1,5 @@
 <?php
-
+echo !extension_loaded('openssl')?"Not Available":"Available";
 // require('vendor\phpmailer\phpmailer\src\PHPMailer.php');
 // require('vendor\phpmailer\phpmailer\src\SMTP.php');
 // require('vendor\phpmailer\phpmailer\src\Exception.php');
@@ -19,7 +19,7 @@ $mail = new PHPMailer(true);
 $mail->isSMTP();
 $mail->SMTPDebug = 1;// debugging: 1 = errors and messages, 2 = messages only
 // Define SMTP Host
-$mail->Host = "smtp.gmail.com";
+$mail->Host = "ssl://smtp.gmail.com";
 // Enable smtp authentication
 $mail->SMTPAuth = "true";
 // set type of encryption
