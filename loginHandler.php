@@ -1,5 +1,6 @@
 <?php
 include('connection.php');
+require('sendEmail.php');
 
 $json_data = $_GET["data"];
 $data_obj = json_decode($json_data);
@@ -32,11 +33,14 @@ switch($data_obj->action){
 
         // SEND OTP USER EMAIL, USED FOR SECOND AUTHENTICATION
         $email = $data_obj->email;
-        $subject = 'OTP';
+        $subject = 'YOUR LOGIN ONE-TIME-PASSWORD';
         $authentication_code = random_int(1000, 9999);
 
-        //SEND EMAIL
-        mail($email, $subject, $authentication_code);
+        // SEND EMAIL
+        // mail($email, $subject, $authentication_code);
+
+        sendEmail($email, $subject, $authentication_code);
+
 
         // reply (authentication status (success | failure), Authentication code)
         $auth_reply = array("status" => "sucess", "auth_code" => $authentication_code);

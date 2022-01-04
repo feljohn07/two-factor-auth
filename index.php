@@ -1,55 +1,39 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-5.1.3-dist\css\bootstrap.min.css">
+    <title>Login</title>
+    <style>
 
-require ('vendor/autoload.php');
+        .container{
+            background-color: rgb(255, 255, 255);
+        }
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
+        .bg-form{
+            background-color: rgb(221, 221, 221);
+        }
 
-function sendEmail($receiver, $OTP, $subject){
+    </style>
+    
+</head>
+<body>
 
-    $mail = new PHPMailer(true);
-    $mail->isSMTP();
+    <div class="container">
+        <div class="d-flex justify-content-center mt-5">
 
-    // debugger
-    // $mail->SMTPDebug = 1;// debugging: 1 = errors and messages, 2 = messages only
+            <!-- LOG IN -->
+            <div class="col-lg-4 bg-form p-5" id="login_form">
 
-    // Define SMTP Host
-    $mail->Host = "ssl://smtp.gmail.com";
-    // Enable smtp authentication
-    $mail->SMTPAuth = "true";
-    // set type of encryption
-    $mail->SMTPSecure = "ssl";
-    // set port to connect smtp
-    $mail->Port = "465";
-    // set gmail username
-    $mail->Username = "feljohn.loe.bangasan@gmail.com";
-    // set gmail password
-    $mail->Password = "tfgwiqpccwlgxoaj";
-    // set email subject
-    $mail->Subject = $subject;
-    // set sender email
-    $mail->setFrom("feljohn.loe.bangasan@gmail.com");
-    // set email body
-    $mail->Body = $OTP;
-    // add recipient
-    $mail->addAddress($receiver);
-    // send the email
-    // $response = $mail->Send();
+                <a href="login.html">Login</a></small>
 
-    // echo $response;
+            </div>
 
-    if($mail->Send()){
-        echo "Check your Email for OTP";
-    }else{
-        echo "error occured";
-    }
+        </div>
+    </div>
 
-    // close smtp connection
-    $mail->smtpClose();
-}
+</body>
 
-sendEmail('feljohn.loe.bangasan@gmail.com', '0000', "YOUR LOGIN ONE-TIME-PASSWORD");
-
-
-?>
+</html>
