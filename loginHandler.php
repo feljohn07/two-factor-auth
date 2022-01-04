@@ -41,7 +41,15 @@ switch($data_obj->action){
 
         if(sendEmail($email, $subject, $authentication_code)){
 
-            $query_result = pg_query($conn, "UPDATE users SET auth_code = ".$authentication_code." where email = '".$email."'");
+            
+            // Return date/time info of a timestamp; then format the output
+            $d = getdate(date("U"));
+            $dateTime = "$d[mon]-$d[mday]-$d[year] $d[hours]:$d[minutes]:$d[seconds]";
+
+            $query_result = pg_query($conn, 
+            "UPDATE users SET auth_code = ".$authentication_code."
+                    SET last_code_request = ". $dateTime ."
+                    Where email = '".$email."'");
 
             if (!$query_result) {
                 // reply (saving authentication code status (failed))
