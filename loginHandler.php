@@ -48,7 +48,7 @@ switch($data_obj->action){
 
             $query_result = pg_query($conn, 
             "UPDATE users SET auth_code = ".$authentication_code."
-                    SET last_code_request = ". $dateTime ."
+                    SET last_code_request = '". $dateTime ."'
                     Where email = '".$email."'");
 
             if (!$query_result) {
@@ -60,6 +60,7 @@ switch($data_obj->action){
                 // reply (saving authentication code status (success))
                 echo json_encode(array("status" => "sucess", "reply" => "new authentication saved!."));
             }
+
         }else{
             // reply (sending authentication code status (success))
             echo json_encode(array("status" => "failed", "reply" => "an error occured while sending OTP to your email. Please wait a moment and try again"));
