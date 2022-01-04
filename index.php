@@ -8,7 +8,6 @@ require('includes\PHPMailer.php');
 require('includes\SMTP.php');
 require('includes\Exception.php');
 
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -46,5 +45,6 @@ if($mail->Send()){
 // close smtp connection
 $mail->smtpClose();
 
+echo "test";
 
 ?>
