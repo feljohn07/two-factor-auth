@@ -26,7 +26,7 @@ $mail->Port = "587";
 // set gmail username
 $mail->Username = "feljohn.loe.bangasan@gmail.com";
 // set gmail password
-$mail->Password = "";
+$mail->Password = "tfgwiqpccwlgxoaj";
 // set email subject
 $mail->Subject = "OTP TEST";
 // set sender email
