@@ -1,4 +1,5 @@
 <?php
+
 require ('vendor/autoload.php');
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -8,7 +9,10 @@ use PHPMailer\PHPMailer\Exception;
 $mail = new PHPMailer(true);
 
 $mail->isSMTP();
+
+// debugger
 // $mail->SMTPDebug = 1;// debugging: 1 = errors and messages, 2 = messages only
+
 // Define SMTP Host
 $mail->Host = "ssl://smtp.gmail.com";
 // Enable smtp authentication
@@ -42,7 +46,5 @@ if($mail->Send()){
 
 // close smtp connection
 $mail->smtpClose();
-
-echo "test";
 
 ?>
