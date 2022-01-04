@@ -48,6 +48,5 @@ if(!$mail->Send()){
 // close smtp connection
 $mail->smtpClose();
 
-echo "test";
 
 ?>
