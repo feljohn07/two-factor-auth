@@ -50,14 +50,14 @@ function request_code(){
             obj_reply = JSON.parse(this.responseText);
             alert('New Authentication Code Sent To Your Email!');
 
-            // enable the form after the server reply is received.
-            TwoFactAuth_form.classList.remove('disabledform');
-
             console.log(this.responseText);
             request_code_timer();
         }else{
             alert("ERROR: " + xmlhttp.status);
         }
+
+        // enable the form after the server reply is received.
+        TwoFactAuth_form.classList.remove('disabledform');
     }
 
     xmlhttp.open("GET","loginHandler.php?data=" + JSON.stringify(data), true);
@@ -91,8 +91,8 @@ function log_in(){
             obj_reply = JSON.parse(this.responseText);
 
             if(obj_reply['status'] == 'success'){
-                document.getElementById('login_form').style.display = 'none';
-                document.getElementById('TwoFactAuth_form').style.display = 'block';
+                login_form.classList.add('hidden');
+                TwoFactAuth_form.classList.remove('hidden');
                 document.getElementById('2factAuth_email').value = obj_reply['email'];
 
                 // after logging is succesfully the client request a authentication code to the server for it to receive on there email address.
@@ -119,8 +119,9 @@ function log_in(){
 
 // Button Back function.
 function back_to_login(){
-    document.getElementById('login_form').style.display = 'block';
-    document.getElementById('TwoFactAuth_form').style.display = 'none';
+    login_form.classList.remove('hidden');
+    TwoFactAuth_form.classList.add('hidden');
+
 }
 
 // Verify the Authentication Code of the user to the server.

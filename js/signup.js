@@ -1,32 +1,34 @@
-const verify_email_form = document.getElementById('verify_email_form');
-const signup_form = document.getElementById('signup_form');
+// use to hide, disable/enable form.
+var verify_email_form = document.getElementById('verifyEmail_form');
+var signup_form = document.getElementById('signup_form');
 
+// Show the email verification form
 function view_email_verify_form(){
-    var verify_email_form = document.getElementById('verify_email_form');
-    var signup_form = document.getElementById('signup_form');
     signup_form.classList.add('hidden');
     verify_email_form.classList.remove('hidden');
 }
 
+// Show sign up form
 function view_signup_form(){
-    var verify_email_form = document.getElementById('verify_email_form');
-    var signup_form = document.getElementById('signup_form');
     verify_email_form.classList.add('hidden');
     signup_form.classList.remove('hidden');
 }
 
+// Validates email if it exist or not in the database.
 function emailValidator(){
-    //send request if the email already exist or not (result > 0)
+    //send request if the email already exist or not using (result > 0)
     //set email field if email already exist
 
     var email_sign_up = document.getElementById("email_sign_up");
-    document.getElementById('email').value = email_sign_up.value;
+    var xmlhttp = new XMLHttpRequest();
+
     var data = { 
         "action": 'verify_email_for_sign_up',
         "email": email_sign_up.value
     }
 
-    var xmlhttp = new XMLHttpRequest();
+    document.getElementById('email').value = email_sign_up.value;
+    verify_email_form.classList.add('disabledform');
 
     xmlhttp.onload = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -39,6 +41,7 @@ function emailValidator(){
         }else{
             alert("ERROR: " + xmlhttp.status);
         }
+        verify_email_form.classList.remove('disabledform');
     }
 
     xmlhttp.open("GET","signupHandler.php?data=" + JSON.stringify(data), true);
@@ -46,6 +49,7 @@ function emailValidator(){
 
 }
 
+// Insert New user to th database
 function insert_user(){
     var fullname = document.getElementById('fullname');
     var get_gender = function(){
@@ -71,9 +75,9 @@ function insert_user(){
         "password": password.value
     }
 
-    //alert(JSON.stringify(data));
-
     var xmlhttp = new XMLHttpRequest();
+
+    signup_form.classList.add('disabledform');
 
     xmlhttp.onload = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -81,6 +85,9 @@ function insert_user(){
         }else{
             alert("ERROR: " + xmlhttp.status);
         }
+
+        signup_form.classList.remove('disabledform');
+
     }
 
     xmlhttp.open("GET","signupHandler.php?data=" + JSON.stringify(data), true);

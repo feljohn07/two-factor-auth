@@ -1,0 +1,28 @@
+.container{
+    background-color: rgb(255, 255, 255);
+}
+
+.bg-form{
+    background-color: rgb(221, 221, 221);
+}
+
+.hidden{
+    display: none;
+}
+
+.disabledform {
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+-moz-appearance: textfield;
+}
