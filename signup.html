@@ -13,24 +13,6 @@
             margin: auto;
         }
 
-        /*form CSS */
-        .form{
-            margin: auto;
-            max-width: fit-content;
-        }
-        table{
-            margin: auto;
-        }
-        tr td{
-            padding: 10px;
-        }
-        input{
-            margin: 1px;
-        }
-        [type='checkbox']{
-            vertical-align: middle;
-        }
-
         .container{
             background-color: rgb(255, 255, 255);
         }
@@ -54,7 +36,7 @@
     <div class="container">
         <div class="d-flex justify-content-center mt-5">
 
-            <!-- VERIFY EMAIL : if already exist or if you really own the email address using OTP -->
+            <!-- VERIFY EMAIL : if already exist-->
             <div class="col-lg-4 bg-form p-5" id="verify_email_form">
 
                 <h1>Sign Up</h1>
@@ -121,85 +103,6 @@
                 <button type="button" class="btn btn-outline-secondary mt-3" onclick="view_email_verify_form()">Back</button>
             </div>
         </div>
-
-    <!-- <section class="form">
-        <form>
-            <h1 style="text-align: center;">Sign Up</h1>
-                <table>
-                    <tr>
-                        <td>
-                            <label for="fullname">Full Name</label>
-                        </td>
-                        <td>
-                            <input type="text" id="fullname" name="fullname" required>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="vertical-align: top;">
-                            <label>Gender</label><br>
-                        </td>
-                        <td>
-                            <input type="radio" id="male" name="gender" value="male" required>
-                            <label for="male">Male</label><br>
-                            <input type="radio" id="female" name="gender" value="female" required>
-                            <label for="female">Female</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="birthdate">Birthdate</label>
-                        </td>
-                        <td>
-                            <input type="date" id="birthdate" name="birthdate" required>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="email" >email</label>
-                        </td>
-                        <td>
-                            <input type="text" id="email" name="email" required>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="password">Password</label>
-                        </td>
-                        <td>
-                            <input type="password" id="password" name="password" required>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="passwordConfirm">Confirm Password</label>
-                        </td>
-                        <td>
-                            <input type="password" id="passwordConfirm" name="passwordConfirm" onfocusout="passwordValidation()"  required>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>
-                            <input type="checkbox" id="term" name="term" value="accept" required>
-                            <label for="term"><small>I accept to the terms and condition.</small></label>
-                        </td>
-                    </tr>   
-                    <tr>
-                        <td></td>
-                        <td>
-                            <input type="submit" value="Sign up" onclick="insert_user()">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>
-                            <small><span>already have account?</span>
-                            <a href="/form_input/login.html">Log in</a></small>
-                        </td>
-                    </tr> 
-                </table>
-        </form>
-    </section> -->
     
 </body>
 </html>

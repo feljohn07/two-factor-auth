@@ -1,3 +1,6 @@
+const verify_email_form = document.getElementById('verify_email_form');
+const signup_form = document.getElementById('signup_form');
+
 function view_email_verify_form(){
     var verify_email_form = document.getElementById('verify_email_form');
     var signup_form = document.getElementById('signup_form');

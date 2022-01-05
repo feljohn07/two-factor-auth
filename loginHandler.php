@@ -36,9 +36,7 @@ switch($data_obj->action){
         $subject = 'YOUR LOGIN ONE-TIME-PASSWORD';
         $authentication_code = random_int(1000, 9999);
 
-        // SEND EMAIL
-        // mail($email, $subject, $authentication_code);
-
+        // sendEmail() returns 1 if the email successfully sent to the user email address.
         if(sendEmail($email, $subject, $authentication_code)){
 
             
@@ -56,11 +54,11 @@ switch($data_obj->action){
 
             }else{
                 // reply (saving authentication code status (success))
-                echo json_encode(array("status" => "sucess", "reply" => "new authentication saved!."));
+                echo json_encode(array("status" => "sucess", "reply" => "new authentication created!."));
             }
 
         }else{
-            // reply (sending authentication code status (success))
+            // reply (sending authentication code status (failed))
             echo json_encode(array("status" => "failed", "reply" => "an error occured while sending OTP to your email. Please wait a moment and try again"));
         }
 
@@ -76,9 +74,9 @@ switch($data_obj->action){
         }else{
             while($row = pg_fetch_assoc($query_result)){
                 if($row['auth_code'] == $data_obj->auth_code){
-                    echo  'true';
+                    echo  json_encode(array("status" => 'true'));
                 }else{
-                    echo 'false';
+                    echo  json_encode(array("status" => 'false'));
                 }
             } 
         }
