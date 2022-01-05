@@ -12,7 +12,7 @@ switch($data_obj->action){
         $query_result = pg_query($conn, "select * from users where email = '" . $data_obj->email_login . "' AND pass = '". $data_obj->password_login ."';");
 
         if (!$query_result) {
-            $login_reply = array("reply" => 'An error occurred');
+            $login_reply = array("status" => "failed", "reply" => 'An error occurred');
             echo json_encode($login_reply);
             exit;
 
