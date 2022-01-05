@@ -1,10 +1,10 @@
 <?php
 
-    $host = "ec2-54-174-43-13.compute-1.amazonaws.com";
+    $host = "ec2-34-226-179-89.compute-1.amazonaws.com";
     $port = "5432";
-    $dbname = "d9qrmuma2f3q4c"; 
-    $user = "ryjfyfbkiezlnl";
-    $pass = "42fcaff96c64f418325b75658f23c74d3fbc39c0c85e87d7ef79af2fbdbc3bf1";
+    $dbname = "dbtgo3jpgfmr95"; 
+    $user = "yxqknkvbexgqdr";
+    $pass = "d4026c6586de57df4b661c696c734175dff26f80cb245f381bbbd735382bed2a";
 
     $conn = pg_connect("host=" . $host . " port=". $port ." dbname=". $dbname ." user=". $user ." password=". $pass );
 ?>
