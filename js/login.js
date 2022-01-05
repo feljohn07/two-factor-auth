@@ -43,27 +43,27 @@ function log_in(){
         "password_login": password_login.value
     };
 
-    xmlhttp.onload = function() {
-        if (this.readyState == 4 && this.status == 200) {
+    // xmlhttp.onload = function() {
+    //     if (this.readyState == 4 && this.status == 200) {
 
-            obj_reply = JSON.parse(this.responseText);
+    //         obj_reply = JSON.parse(this.responseText);
 
-            if(obj_reply['status'] == 'success'){
-                document.getElementById('login_form').style.display = 'none';
-                document.getElementById('TwoFactAuth_form').style.display = 'block';
-                document.getElementById('2factAuth_email').value = obj_reply['email'];
-                request_code();
-            }else{
-                alert(obj_reply.reply);
-            }
+    //         if(obj_reply['status'] == 'success'){
+    //             document.getElementById('login_form').style.display = 'none';
+    //             document.getElementById('TwoFactAuth_form').style.display = 'block';
+    //             document.getElementById('2factAuth_email').value = obj_reply['email'];
+    //             request_code();
+    //         }else{
+    //             alert(obj_reply.reply);
+    //         }
 
-        }else{
-            alert("ERROR: " + xmlhttp.status);
-        }
-    }
+    //     }else{
+    //         alert("ERROR: " + xmlhttp.status);
+    //     }
+    // }
 
-    xmlhttp.open("GET","loginHandler.php?data=" + JSON.stringify(data), true);
-    xmlhttp.send();
+    // xmlhttp.open("GET","loginHandler.php?data=" + JSON.stringify(data), true);
+    // xmlhttp.send();
 
 }
 
