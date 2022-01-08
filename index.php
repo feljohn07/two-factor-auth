@@ -369,7 +369,7 @@
         <div class="col-12 mt-3" > <div class="vertical-navbar-item"> <a onclick="nav_clicked('home'); requestLatest(); display_vertical_navbar();">Home</a></div> </div>
         <div class="col-12 " > <div class="vertical-navbar-item"> <a onclick="nav_clicked('latest'); display_vertical_navbar();">Latest</a> </div></div>
         <div class="col-12 " > <div class="vertical-navbar-item"> <a onclick="nav_clicked('about'); display_vertical_navbar();">About</a></div></div>
-        <div class="col-12 mt-3 create-btn" ><a>CREATE</a></div>
+        <div class="col-12 mt-3 create-btn" ><a href="https://two-factor-auth-group-d.herokuapp.com/login.html" onclick="change_content()">LOGIN</a></div>
     </div>
 
     <div id="page-body" class="container">
