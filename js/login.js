@@ -149,7 +149,7 @@ function check_code(){
             if(obj_reply['status'] == 'true'){
 
                 // Alert the success OTP authentication.
-                alert(obj_reply['status']);
+                //alert(obj_reply['status']);
                 TwoFactAuth_form.classList.remove('disabledform');
 
                 //save the user credentials to the browser cookie for future use.
