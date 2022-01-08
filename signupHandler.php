@@ -42,7 +42,9 @@ switch($data_obj->action){
           echo "An error occurred.\n";
           exit;
         }else{
+
             echo "User Created!";
+
         }
         break;
     

@@ -143,14 +143,27 @@ function check_code(){
     xmlhttp.onload = function() {
         if (this.readyState == 4 && this.status == 200) {
 
-            //returns 'true' if the code is correct.
+            // returns 'true' if the code is correct.
             obj_reply = JSON.parse(this.responseText);
 
             if(obj_reply['status'] == 'true'){
+
+                // Alert the success OTP authentication.
                 alert(obj_reply['status']);
                 TwoFactAuth_form.classList.remove('disabledform');
+
+                //save the user credentials to the browser cookie for future use.
+
+
+                // Redirect the user to the Dashboard.
+                //location.href = 'https://localhost/github/two-factor-auth/WEBSYS_FINAL_PROJECT';
+
+                location.href = 'https://two-factor-auth-group-d.herokuapp.com/WEBSYS_FINAL_PROJECT';
             }else{
-                alert(obj_reply['status']);
+
+                // Alert the failed OTP authentication.
+                alert('Wrong OTP Entered.');
+
             }
             
             // Enable Form after the server reply is received.
