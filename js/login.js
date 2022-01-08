@@ -158,7 +158,7 @@ function check_code(){
                 // Redirect the user to the Dashboard.
                 //location.href = 'https://localhost/github/two-factor-auth/WEBSYS_FINAL_PROJECT';
 
-                location.href = 'https://two-factor-auth-group-d.herokuapp.com/WEBSYS_FINAL_PROJECT';
+                window.location.replace = 'https://two-factor-auth-group-d.herokuapp.com/WEBSYS_FINAL_PROJECT';
             }else{
 
                 // Alert the failed OTP authentication.
