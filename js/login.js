@@ -29,7 +29,7 @@ function request_code_timer() {
 
 }
 
-
+// request new OTP code to the server.
 function request_code(){
 
     var email_login = document.getElementById("email_login");

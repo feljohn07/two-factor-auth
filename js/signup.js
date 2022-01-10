@@ -82,7 +82,7 @@ function insert_user(){
     xmlhttp.onload = function() {
         if (this.readyState == 4 && this.status == 200) {
             alert(this.responseText);
-            window.location.href = 'https://two-factor-auth-group-d.herokuapp.com/WEBSYS_FINAL_PROJECT';
+            window.location.href = 'https://two-factor-auth-group-d.herokuapp.com/login.html';
         }else{
             alert("ERROR: " + xmlhttp.status);
         }
