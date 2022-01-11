@@ -9,7 +9,7 @@ switch($data_obj->action){
 
     case 'auth_user_credential':
 
-        $query_result = pg_query($conn, "select * from users where email = '" . $data_obj->email_login . "' AND pass = '". $data_obj->password_login ."';");
+        $query_result = pg_query($conn, "select * from users_info_sec where email = '" . $data_obj->email_login . "' AND pass = '". $data_obj->password_login ."';");
 
         if (!$query_result) {
             $login_reply = array("status" => "failed", "reply" => 'An error occurred');
@@ -45,7 +45,7 @@ switch($data_obj->action){
             $dateTime = "$d[mon]-$d[mday]-$d[year] $d[hours]:$d[minutes]:$d[seconds]";
 
             $query_result = pg_query($conn, 
-            "UPDATE users SET auth_code = ".$authentication_code.", last_code_request = '".$dateTime."' Where email = '".$email."'");
+            "UPDATE users_info_sec SET auth_code = ".$authentication_code.", last_code_request = '".$dateTime."' Where email = '".$email."'");
 
             if (!$query_result) {
                 // reply (saving authentication code status (failed))
@@ -66,7 +66,7 @@ switch($data_obj->action){
 
     case 'verify_code':
 
-        $query_result = pg_query($conn, "SELECT auth_code from users where email = '" . $data_obj->email . "'");
+        $query_result = pg_query($conn, "SELECT auth_code from users_info_sec where email = '" . $data_obj->email . "'");
 
         if (!$query_result) {
             echo 'An error occurred';

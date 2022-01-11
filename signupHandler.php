@@ -8,7 +8,7 @@ switch($data_obj->action){
 
     //Checks if the email is already exist.
     case 'verify_email_for_sign_up':
-        $query = "Select email from users where email = ". "'".$data_obj->email."'";
+        $query = "Select email from users_info_sec where email = ". "'".$data_obj->email."'";
         
         $query_result = pg_query($conn, $query);
         if (!$query_result) {
@@ -34,7 +34,7 @@ switch($data_obj->action){
         $d = getdate(date("U"));
         $dateTime = "$d[mon]-$d[mday]-$d[year] $d[hours]:$d[minutes]:$d[seconds]";
 
-        $query = "Insert Into users(email, pass, name, gender, birth_date, user_created)
+        $query = "Insert Into users_info_sec(email, pass, name, gender, birth_date, user_created)
         values('". $data_obj->email ."', '".$data_obj->password."', '".$data_obj->fullname."', '".$data_obj->gender."', '".$data_obj->birthdate."', '".$dateTime."');";
         
         $result = pg_query($conn, $query);
